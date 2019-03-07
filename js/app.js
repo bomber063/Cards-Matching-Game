@@ -1,6 +1,17 @@
 /*
  * 创建一个包含所有卡片的数组
  */
+var cards = [];
+for (var i = 0; i < $('.card').length; i++) {
+	cards.push($('.card')[i]);
+}
+
+cards = shuffle(cards);
+
+for(var i = 0; i < cards.length; i++){
+    $(".deck").append(cards[i]);
+}
+
 
 
 /*
