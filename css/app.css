@@ -62,11 +62,19 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
+    -webkit-transition:all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
+    transition:all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
     box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
 }
 
+.deck .card:hover {
+    transform: rotateY(45deg);
+    background: #2e3d49;
+    cursor: default;
+}
+
 .deck .card.open {
-    transform: rotateY(0);
+    transform: rotateY(180deg);
     background: #02b3e4;
     cursor: default;
 }

@@ -7,10 +7,59 @@ for (var i = 0; i < $('.card').length; i++) {
 }
 
 cards = shuffle(cards);
-
+$(".card").remove();
 for(var i = 0; i < cards.length; i++){
     $(".deck").append(cards[i]);
 }
+
+var openedCards=[];
+
+
+
+function mountCardClickEvent() {
+        $('.card').off('click').on('click', (e) => {
+            if (!isCounting) {
+                startCountTime();
+                isCounting = true;
+            }
+            if (underMatching) {
+                return;
+            }
+            if ($('.open').length === 2) {
+                return;
+            }
+            var timeoutID = null;
+            var $element = $(e.target);
+            var $target = $element.hasClass('card') ? $element : $element.parent();
+            if ($target.hasClass('match')) {
+                return;
+            }
+            $target.addClass('open');
+            clearTimeout(timeoutID);
+            timeoutID = setTimeout(() => {
+                $target.addClass('show');
+                underMatching = $('.show').length !== 1;
+                if (!underMatching) {
+                    return;
+                }
+                checkMatch($($('.open')[0]).attr('value'), $($('.open')[1]).attr('value'))
+            }, 400);
+
+        });
+    }
+
+// $(document).ready(function() {
+//     $('.card').on('click', function() {
+//         if ($(this).hasClass('open')) {
+//             $(this).removeClass('open show');
+//             openedCard.push(target);          
+//         } else {
+//             $(this).removeClass('open');
+//             $(this).addClass('open show');
+
+//         }
+//     });
+// });
 
 
 
