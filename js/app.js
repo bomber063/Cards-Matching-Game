@@ -12,54 +12,96 @@ for(var i = 0; i < cards.length; i++){
     $(".deck").append(cards[i]);
 }
 
-var openedCards=[];
 
 
 
-function mountCardClickEvent() {
-        $('.card').off('click').on('click', (e) => {
-            if (!isCounting) {
-                startCountTime();
-                isCounting = true;
-            }
-            if (underMatching) {
-                return;
-            }
-            if ($('.open').length === 2) {
-                return;
-            }
-            var timeoutID = null;
-            var $element = $(e.target);
-            var $target = $element.hasClass('card') ? $element : $element.parent();
-            if ($target.hasClass('match')) {
-                return;
-            }
-            $target.addClass('open');
-            clearTimeout(timeoutID);
-            timeoutID = setTimeout(() => {
-                $target.addClass('show');
-                underMatching = $('.show').length !== 1;
-                if (!underMatching) {
-                    return;
+
+// function mountCardClickEvent() {
+//         $('.card').off('click').on('click', (e) => {
+//             if (!isCounting) {
+//                 startCountTime();
+//                 isCounting = true;
+//             }
+//             if (underMatching) {
+//                 return;
+//             }
+//             if ($('.open').length === 2) {
+//                 return;
+//             }
+//             var timeoutID = null;
+//             var $element = $(e.target);
+//             var $target = $element.hasClass('card') ? $element : $element.parent();
+//             if ($target.hasClass('match')) {
+//                 return;
+//             }
+//             $target.addClass('open');
+//             clearTimeout(timeoutID);
+//             timeoutID = setTimeout(() => {
+//                 $target.addClass('show');
+//                 underMatching = $('.show').length !== 1;
+//                 if (!underMatching) {
+//                     return;
+//                 }
+//                 checkMatch($($('.open')[0]).attr('value'), $($('.open')[1]).attr('value'))
+//             }, 400);
+
+//         });
+//     }
+
+
+$(document).ready(function() {
+    $('.card').on('click', function() {
+        if ($(this).hasClass('open')) {
+               //     var openedCards=[];
+               // for(var i=0; i<2; i++){
+               //      openedCards.push($(this.target).children('i')); 
+               //  }
+               //    if(openedCards[0]==openedCards[1]){
+
+               //         // $('.card').removeClass('open');
+               //         // $('.card').toggleClass('open show match');
+               //         console.log('通过对比第一个和第二个选择的class的子元素匹配相同，保持open match'); 
+                   
+               // }else if(openedCards[0]!=openedCards[1]){
+
+               //      // $('.card').toggleClass('open show match');
+               //      // $(this.target).unbind();
+               //      console.log('通过对比第一个和第二个选择的class的子元素匹配不相同，移除open show match类'); 
+               // }else{
+                 console.log('其他');
+               
+   
+        } else {
+            $(this).toggleClass('open show');
+            // $(this).removeClass('open');
+            // $(this).addClass('open show');
+                        console.log('点击了一个没有open class的元素,增加open show的class');
+                               var openedCards=[];
+               for(var i=0; i<2; i++){
+                    openedCards.push($(this.target).children('i').attr('class')); 
                 }
-                checkMatch($($('.open')[0]).attr('value'), $($('.open')[1]).attr('value'))
-            }, 400);
+                  if(openedCards[0]==openedCards[1]){
 
-        });
-    }
+                       // $('.card').removeClass('open');
+                       $(this.target).toggleClass('open show match');
+                       console.log('通过对比第一个和第二个选择的class的子元素匹配相同，保持open match'); 
+                   
+               }else if(openedCards[0]!=openedCards[1]){
+                // 这里如果不添加函数好像不行？
+                  function firstFun(){
+                    $('.card,.open,.show').toggleClass('open show');
+                    // 这里不应该写$(this.target).toggleClass('open show match');
+                    // $(this.target).unbind();
+                    console.log('通过对比第一个和第二个选择的class的子元素匹配不相同，移除open show match类'); 
+                  }
+               }else{
+                 console.log('其他');
 
-// $(document).ready(function() {
-//     $('.card').on('click', function() {
-//         if ($(this).hasClass('open')) {
-//             $(this).removeClass('open show');
-//             openedCard.push(target);          
-//         } else {
-//             $(this).removeClass('open');
-//             $(this).addClass('open show');
 
-//         }
-//     });
-// });
+        }
+      }
+    });
+});
 
 
 
