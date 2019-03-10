@@ -48,58 +48,40 @@ for(var i = 0; i < cards.length; i++){
 //         });
 //     }
 
+                function clickTwo(){
+                   var openedCards=[];
+               for(var i=0; i<2; i++){
+                    openedCards.push($(this.target).children()); 
+                };
+                return openedCards;
+            }
 
 $(document).ready(function() {
     $('.card').on('click', function() {
         if ($(this).hasClass('open')) {
-               //     var openedCards=[];
-               // for(var i=0; i<2; i++){
-               //      openedCards.push($(this.target).children('i')); 
-               //  }
-               //    if(openedCards[0]==openedCards[1]){
+                             clickTwo();
+                  if(openedCards[0]==openedCards[1]){
 
-               //         // $('.card').removeClass('open');
-               //         // $('.card').toggleClass('open show match');
-               //         console.log('通过对比第一个和第二个选择的class的子元素匹配相同，保持open match'); 
+                       // $('.card').removeClass('open');
+                       $('.card').toggleClass('open match');
+                       console.log('匹配相同，保持open match'); 
                    
-               // }else if(openedCards[0]!=openedCards[1]){
-
-               //      // $('.card').toggleClass('open show match');
-               //      // $(this.target).unbind();
-               //      console.log('通过对比第一个和第二个选择的class的子元素匹配不相同，移除open show match类'); 
-               // }else{
+               }else if(openedCards[0]!==openedCards[1]){
+                    $('.card').removeClass('open show match');
+                    console.log('匹配不相同，移除open show match类'); 
+               }else{
                  console.log('其他');
-               
-   
+               }
+
+
+    
         } else {
             $(this).toggleClass('open show');
             // $(this).removeClass('open');
             // $(this).addClass('open show');
-                        console.log('点击了一个没有open class的元素,增加open show的class');
-                               var openedCards=[];
-               for(var i=0; i<2; i++){
-                    openedCards.push($(this.target).children('i').attr('class')); 
-                }
-                  if(openedCards[0]==openedCards[1]){
-
-                       // $('.card').removeClass('open');
-                       $(this.target).toggleClass('open show match');
-                       console.log('通过对比第一个和第二个选择的class的子元素匹配相同，保持open match'); 
-                   
-               }else if(openedCards[0]!=openedCards[1]){
-                // 这里如果不添加函数好像不行？
-                  function firstFun(){
-                    $('.card,.open,.show').toggleClass('open show');
-                    // 这里不应该写$(this.target).toggleClass('open show match');
-                    // $(this.target).unbind();
-                    console.log('通过对比第一个和第二个选择的class的子元素匹配不相同，移除open show match类'); 
-                  }
-               }else{
-                 console.log('其他');
-
+            console.log('1');
 
         }
-      }
     });
 });
 

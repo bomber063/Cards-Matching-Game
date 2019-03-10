@@ -70,7 +70,7 @@ h1 {
 .deck .card:hover {
     transform: rotateY(45deg);
     background: #2e3d49;
-    cursor: pointer;
+    cursor: default;
 }
 
 .deck .card.open {
