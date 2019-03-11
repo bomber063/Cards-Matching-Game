@@ -47,43 +47,100 @@ for(var i = 0; i < cards.length; i++){
 
 //         });
 //     }
+var openCard = [];
 
-                function clickTwo(){
-                   var openedCards=[];
-               for(var i=0; i<2; i++){
-                    openedCards.push($(this.target).children()); 
-                };
-                return openedCards;
-            }
+var matchingCard = function(){// 比对两张牌的类的值是否匹配，匹配则保持翻开状态，否则继续隐藏。
+    if((openCard.length === 2) && (openCard[0] === openCard[1])){
+        $(".card.open").addClass("match");
+        matchedCard.push(openCard[0]);
+        matchedCard.push(openCard[1]);
+        // setTimeout(myFunction, 200);
+        // function myFunction(){
+        //     openCard.splice(0,2);
+      // };
+        // openCard.splice(0,2);
+    }else if((openCard.length === 2) && (openCard[0] !== openCard[1])) {
+    　  setTimeout(myFunction, 500);// 设定延时函数，不能刚一不匹配就关闭，给视觉反应时间
+        function myFunction(){
+            $(".card,.open,.show").removeClass("open show");
+          //   setTimeout(myFunction, 200);
+          //   function myFunction(){
+          //       openCard.splice(0,2);
+          // };
+            // openCard.splice(0,2);// 设定延时函数
+        };
+    };
+};
+// $(document).ready(function() {
+  $('.deck').on('click', 'li', function(ev) {　　　//如果没有翻面所需的类，就添加。如果已经存在，就禁止添加。
+    if(($(this).hasClass("open show")===false) && (openCard.length < 2) && ($(this).hasClass("match")===false)){// 每次点击事件仅对未打开且未匹配的卡牌起作用
+        $(this).toggleClass("open show");
+        // $(ev.delegateTarget).toggleClass("open show");// 找到父级
+        var op = $(this).find("i").attr("class");// 提取图片的类的属性到数组
+        openCard.push(op);
 
-$(document).ready(function() {
-    $('.card').on('click', function() {
-        if ($(this).hasClass('open')) {
-                             clickTwo();
-                  if(openedCards[0]==openedCards[1]){
+　　};//翻页函数的尾巴
+            matchingCard();
+  });
 
-                       // $('.card').removeClass('open');
-                       $('.card').toggleClass('open match');
-                       console.log('匹配相同，保持open match'); 
+// });
+
+
+
+
+// $(document).ready(function() {
+//     $('.card').on('click', function() {
+//         if ($(this).hasClass('open')) {
+//                //     var openedCards=[];
+//                // for(var i=0; i<2; i++){
+//                //      openedCards.push($(this.target).children('i')); 
+//                //  }
+//                //    if(openedCards[0]==openedCards[1]){
+
+//                //         // $('.card').removeClass('open');
+//                //         // $('.card').toggleClass('open show match');
+//                //         console.log('通过对比第一个和第二个选择的class的子元素匹配相同，保持open match'); 
                    
-               }else if(openedCards[0]!==openedCards[1]){
-                    $('.card').removeClass('open show match');
-                    console.log('匹配不相同，移除open show match类'); 
-               }else{
-                 console.log('其他');
-               }
+//                // }else if(openedCards[0]!=openedCards[1]){
+
+//                //      // $('.card').toggleClass('open show match');
+//                //      // $(this.target).unbind();
+//                //      console.log('通过对比第一个和第二个选择的class的子元素匹配不相同，移除open show match类'); 
+//                // }else{
+//                  console.log('其他');
+               
+   
+//         } else {
+//             $(this).toggleClass('open show');
+//             // $(this).removeClass('open');
+//             // $(this).addClass('open show');
+//                         console.log('点击了一个没有open class的元素,增加open show的class');
+//                                var openedCards=[];
+//                for(var i=0; i<2; i++){
+//                     openedCards.push($(this.target).children('i').attr('class')); 
+//                 }
+//                   if(openedCards[0]==openedCards[1]){
+
+//                        // $('.card').removeClass('open');
+//                        $(this.target).toggleClass('open show match');
+//                        console.log('通过对比第一个和第二个选择的class的子元素匹配相同，保持open match'); 
+                   
+//                }else if(openedCards[0]!=openedCards[1]){
+//                 // 这里如果不添加函数好像不行？
+//                   function firstFun(){
+//                     $('.card,.open,.show').toggleClass('open show');
+//                     // 这里不应该写$(this.target).toggleClass('open show match');
+//                     // $(this.target).unbind();
+//                     console.log('通过对比第一个和第二个选择的class的子元素匹配不相同，移除open show match类'); 
+//                   }
+//                }else{
+//                  console.log('其他');
 
 
-    
-        } else {
-            $(this).toggleClass('open show');
-            // $(this).removeClass('open');
-            // $(this).addClass('open show');
-            console.log('1');
-
-        }
-    });
-});
+//         }
+//       }
+//     });
+// });
 
 
 
