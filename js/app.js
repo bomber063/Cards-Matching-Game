@@ -28,23 +28,33 @@ function myFunction() {
     // 这里$(.card空格.open空格.show) 和 $(.card逗号.open逗号.show)
     // $(openedCard).attr('.card,.open,.show").removeClass("open,show");
     // $(".card,.open,.show").removeClass("open,show");//如果点击的两次所取得类不一样，就返回继续关闭。也就是移除open和show的class。
-       $(openedCard).find('i').removeClass("open show");
-    console.log($(".card,.open,.show").removeClass("open show"));
-      console.log($(".card,.open,.show").removeClass("open show"));  
-            console.log($(openedCard).find('i').removeClass("open show"));   
+       // $(openedCard).find('i').removeClass("open show");
+                   console.log('通过点击两次对象判断为不相等');
+       console.log(openedCard);
+    // console.log($(".card,.open,.show").removeClass("open show"));
+    openedCard.forEach(function(card){
+      card.attr("class","card open show");
+      setTimeout(function(){
+        card.attr("class","card");
+      },1000);
+              openedCard = [];
+    });
+
+
   };
 };
 
 var matching = function () {
-    if ((openedCard.length == 2) && (openedCard[0] === openedCard[1])) {
-      $(".card.open").toggleClass("match");
+    if ((openedCard.length == 2) && (openedCard[0].children().attr('class') === openedCard[1].children().attr('class'))) {
+      $(".card.open").addClass("match");
       matchedCard.push(openedCard[0]);
       matchedCard.push(openedCard[1]);
       console.log('通过点击两次对象判断为相等');
       openedCard = []
-    } else if ((openedCard.length == 2) && (openedCard[0] !== openedCard[1]) ) {
+    } else if ((openedCard.length == 2) && (openedCard[0].children().attr('class') !== openedCard[1].children().attr('class')) ) {
+            console.log('通过点击两次对象判断为不相等');
       setTimeout(myFunction, 500);
-      openedCard = []
+      // openedCard = []
     };
 };
 
@@ -58,9 +68,10 @@ var matching = function () {
   if ($(this).hasClass("open show match") === false) {
     if ($(this).hasClass("open show") === false) {
       $(this).toggleClass("open show");
-      var op = $(this).find("i").attr("class");// 提取所点击对象的子元素i的class类
+      var op = $(this);//.find("i");//.attr("class");// 提取所点击对象的子元素i的class类
       openedCard.push(op);//把提取的图片的类放到数组openedCard里面去
-      console.log(openedCard)
+      console.log(openedCard[0].children().attr('class'));
+            console.log(openedCard[1]);
       matching();
     }
   };

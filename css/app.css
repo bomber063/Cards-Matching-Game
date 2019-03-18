@@ -71,12 +71,14 @@ h1 {
     transform: rotateY(45deg);
     background: #2e3d49;
     cursor: pointer;
+
 }
 
 .deck .card.open {
     transform: rotateY(180deg);
     background: #02b3e4;
     cursor: default;
+
 }
 
 .deck .card.show {
@@ -88,6 +90,7 @@ h1 {
     background: #02ccba;
     font-size: 33px;
 }
+
 
 /*
  * Styles for the Score Panel
