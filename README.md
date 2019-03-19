@@ -18,16 +18,16 @@
 卡牌是可以打开，也可以对比，相同可以保持匹配状态，但是不同的话就会移除掉open和show，但是这里移除是所有的卡牌的open和show，就是包括了已经打开并且匹配的卡牌。代码问题估计在第30行和第31行这里
 ## 第九次提交
 我的问题卡在通过判断点击的两个元素的class不相同后，需要移除open show，但是我想达到的效果是只移除点击的两个卡片，但是实际会移除掉所有的卡牌。
-解决步骤如下：
->1.opendeCard通过JS遍历的方式也就是通过（forEach）来把选中数组内的元素。
->openCards.forEach(function(card) {
->    // 添加一个 shake 左右晃动动画
->    card.attr("class", "card open show error animated shake");
->    setTimeout(function() {
->      // 动画进行 1s 后移除所有 class, 恢复翻过去的状态
->      card.attr("class", "card");
->    }, 1000);
->});
+*解决步骤如下：
+1.opendeCard通过JS遍历的方式也就是通过（forEach）来把选中数组内的元素。
+`openCards.forEach(function(card) {`
+`    // 添加一个 shake 左右晃动动画`
+`    card.attr("class", "card open show error animated shake");`
+`    setTimeout(function() {`
+`      // 动画进行 1s 后移除所有 class, 恢复翻过去的状态`
+`      card.attr("class", "card");`
+`    }, 1000);`
+`});`
 >
 >2.该问题存在于35行中，此处的card指代数组中的索引的值。简单来说如果数组是['1','a']；那么card分别就代表1使用一次，然后a使用一次。
 因为此处选择的是card的class属性，又出现新问题。
