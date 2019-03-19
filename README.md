@@ -19,7 +19,7 @@
 ## 第九次提交
 我的问题卡在通过判断点击的两个元素的class不相同后，需要移除open show，但是我想达到的效果是只移除点击的两个卡片，但是实际会移除掉所有的卡牌。
 * 解决步骤如下：
-1.opendeCard通过JS遍历的方式也就是通过（forEach）来把选中数组内的元素。
+>1.opendeCard通过JS遍历的方式也就是通过（forEach）来把选中数组内的元素。
 ```openCards.forEach(function(card) {
     // 添加一个 shake 左右晃动动画`
     card.attr("class", "card open show error animated shake");
