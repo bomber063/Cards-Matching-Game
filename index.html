@@ -29,6 +29,47 @@
             <div class="restart">
         		<i class="fa fa-repeat"></i>
         	</div>
+
+
+<div id="time">
+<input id="mytime" type="text" value="00:00:00" readonly>
+<div id="dd">
+<input type="button" value="开始">
+<input type="button" value="暂停">
+<input type="button" value="重置">
+
+                <p style="float:right; display:inline;">
+                    You have used steps is
+                    <i id="steps">0</i>
+                </p>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+<!--     <div class="wrapper">
+    <h1 id=mytime>显示时间</h1>
+   <input id="mytime" type="text" name="" value="显示时间"> -->
+<!--     <button id="stop" name="button" onclick="stop()">stop</button>
+    <button id="start" name="button" onclick="start()">start</button>
+    <button id="reset" name="button" onclick="reset()">reset</button>
+    </div> -->
+  </body>
+   <script type="text/javascript">
+
+ 
+   </script>
+ 
+
         </section>
 
         <ul class="deck">
@@ -82,6 +123,65 @@
             </li>
         </ul>
     </div>
+
+
+<!--             <div class="containerWin winD" id="Winwindow"> -->
+                            <div class="containerWin winDisply">
+                                
+<!--                                                             <div class="containerWin"> -->
+                <header>
+                    <h1 style="font-style:italic;
+            font-family: sans-serif;
+            font-size:50px;
+            font-weight:800;
+            color: #fff;
+            text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 40px #ff00de, 0 0 70px #ff00de;">
+                        You are win
+                    </h1>
+                </header>
+
+                <section class="score-panel" style="text-align:center;">
+
+                    <ul class="stars" id="stars-three">
+                        <li><i class="fa fa-star" id="star11"></i></li>
+                        <li><i class="fa fa-star" id="star22"></i></li>
+                        <li><i class="fa fa-star" id="star33"></i></li>
+                    </ul>
+                    <span class="moves">3 Moves</span>
+                    <div>
+                        <h1 style="font-style:italic;
+            text-align:center;
+            font-family: sans-serif;
+            font-size:20px;
+            font-weight:800;
+            color: #fff;
+            text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #445252, 0 0 40px #ff00de, 0 0 70px #ff00de;">Do you like paly again</h1>
+                    </div>
+                    <div>
+                        <p>
+                            You have used steps is
+                            <i id="Endsteps">0</i>
+                        </p>
+                        <p>Used time is
+                            <i id="Endtimes">0<i>
+             </p>
+         </div>
+        </section>
+
+        <div class="restartWin">
+        <i class="fa fa-repeat"></i>
+                    </div>
+
+
+            </div>
+
+
+
+
+
+
+
+
 
     <script src="js/app.js"></script>
 </body>
