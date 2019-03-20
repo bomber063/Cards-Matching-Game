@@ -51,5 +51,9 @@
 ## 第十次提交
 已完成计时器，计步器，匹配完成弹出胜利页面。
 
+通过使用git config --global core.autocrlf false解决warning: LF will be replaced by CRLF 问题
+
+
+
 
   
