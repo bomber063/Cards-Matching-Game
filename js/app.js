@@ -33,7 +33,7 @@ function myFunction() {
 
     // console.log($(".card,.open,.show").removeClass("open show"));
     openedCard.forEach(function(card){
-      card.attr("class","card open show");
+      card.attr("class","card open show shake");
       setTimeout(function(){
         card.attr("class","card");
       },1000);
@@ -47,7 +47,7 @@ function myFunction() {
 var matching = function () {
 
     if ((openedCard.length == 2) && (openedCard[0].children().attr('class') === openedCard[1].children().attr('class'))) {
-      $(".card.open").addClass("match");
+      $(".card.open").addClass("match rubberBand");
       matchedCard.push(openedCard[0]);
       matchedCard.push(openedCard[1]);
 
