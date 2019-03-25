@@ -43,7 +43,7 @@ var matching = function () {
       openedCard = []
         numberOfsteps(a);
   a=a+1;
-
+console.log(a);
     } else if ((openedCard.length == 2) && (openedCard[0].children().attr('class') !== openedCard[1].children().attr('class')) ) {
 
       setTimeout(myFunction, 500);
@@ -53,7 +53,7 @@ var matching = function () {
 
     };
 
-        if(matchedCard.length == 2) { //停止计时函数
+        if(matchedCard.length == cards.length) { //停止计时函数
                       
 
  $("#dd").on("click","i",function()
@@ -79,14 +79,16 @@ HideStar(a);
                         win();
 
                         document.getElementById("Endtimes").innerHTML = oTxt.value;
-                        document.getElementById("Endsteps").innerHTML = a;
+                        // document.getElementById("Endsteps").innerHTML = a;//JS来更改html
+a=a-1;
+                        $('#Endsteps').html(a); //JQ来更改html                      
                         // $('div').attr('class','container')remove();
                         $('div').first().hide(1000);//通过first选中第一个div
                         // $('div').eq(0).hide();通过eq也可以实现选中第一个div。
-
+console.log(a);
                       };                  
 
-console.log(this);
+// console.log(this);
 
 };
 
@@ -275,15 +277,15 @@ function shuffle(array) {
 
 
 function HideStar(a) {
-    if(a > 5) {
+    if(a > 15) {
         $("#star1").hide();
         $("#star11").hide();
     }
-    if(a > 10) {
+    if(a > 25) {
         $("#star2").hide();
         $("#star22").hide();
     }
-    if(a > 20) {
+    if(a > 35) {
         $("#star3").hide();
         $("#star33").hide();
     }
