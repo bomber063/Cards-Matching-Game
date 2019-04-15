@@ -70,7 +70,8 @@
 
 ## 第45次commit后的建议  
 ### 技巧  
-> [push()](http://www.w3school.com.cn/jsref/jsref_push.asp) 方法可向数组的末尾添加一个或多个元素，并返回新的长度。  
+> [push()](http://www.w3school.com.cn/jsref/jsref_push.asp) 方法可向数组的末尾添加一个或多个元素，并返回新的长度。 
+   
 所以此处我们可以对代码进行简化合并：  
 `matchedCard.push(openedCard[0], openedCard[1]);`  
 
