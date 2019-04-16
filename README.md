@@ -75,9 +75,9 @@
 所以此处我们可以对代码进行简化合并：  
 `matchedCard.push(openedCard[0], openedCard[1]);`  
 
-> 78-88行，推荐在写 HTML，CSS 和 JavaScript 代码时，注重代码的格式，让其易于阅读。  
-###资源
-每次写完代码后就用下面的网站对 JavaScript 进行自动排版：  
+### 资源
+78-88行，推荐在写 HTML，CSS 和 JavaScript 代码时，注重代码的格式，让其易于阅读。  
+> 每次写完代码后就用下面的网站对 JavaScript 进行自动排版：  
 [js-beautify](https://countwordsfree.com/js-formatter)
 
 
