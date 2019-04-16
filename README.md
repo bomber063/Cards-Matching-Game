@@ -68,12 +68,17 @@
 ## 第十五次提交
 优化计步器，完成星数。
 
-## 第45次commit后的建议  
+## 第45次commit后的JS建议  
 ### 技巧  
 > [push()](http://www.w3school.com.cn/jsref/jsref_push.asp) 方法可向数组的末尾添加一个或多个元素，并返回新的长度。 
    
 所以此处我们可以对代码进行简化合并：  
 `matchedCard.push(openedCard[0], openedCard[1]);`  
+
+> 78-88行，推荐在写 HTML，CSS 和 JavaScript 代码时，注重代码的格式，让其易于阅读。  
+###资源
+每次写完代码后就用下面的网站对 JavaScript 进行自动排版：  
+[js-beautify](https://countwordsfree.com/js-formatter)
 
 
   
