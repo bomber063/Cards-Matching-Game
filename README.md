@@ -80,5 +80,36 @@
 > 每次写完代码后就用下面的网站对 JavaScript 进行自动排版：  
 [js-beautify](https://countwordsfree.com/js-formatter)
 
+### 建议
+#### 没有块级作用域
+137行代码  
+JavaScript 没有块级作用域经常会导致理解上的困惑。在其他类C的语言中，由花括号封闭的代码块都有自己的作用域（如果用 ECMAScript 的话来讲，就是它们都有自己的执行环境），因而支持根据条件来定义变量。例如，下面的代码在 JavaScript 中并不会得到想象中的结果：  
+```
+if (true) {  
+  var color = 'blue';  
+}  
+
+alert(color);     // blue  
+```
+这里是在一个 if 语句中定义了变量 color。如果是在 C，C++或Java中，color会在if语句执行完毕后被销毁。但在JavaScript中，if语句中的变量声明会将变量添加到当前的执行环境（在这里是全局环境）中。在使用for语句时尤其要牢记这一差异，例如：  
+```
+for (var i=0; i < 10; i++) {  
+  doSomething(i);  
+}  
+alert(i);     // 10  
+```
+对于有块级作用域的语言来说，for语句初始化变量的表达式所定义的变量，会只存在于循环的环境中。而对于JavaScript来说，由for语句创建的变量 i 即使在 for 循环执行结束后，也依旧会存在于循环外部的执行环境中。  
+  
+所以今后我们推荐在for循环中使用 let 来声明一个 块范围变量 ，让变量只在定义它的块中起有效：  
+```
+for (let i=0; i < 10; i++) {  
+  doSomething(i)  
+}  
+  
+alert(i);   // 控制台报错：Uncaught ReferenceError: i is not defined  
+```
+#### 推荐阅读
+[Is there any reason to use the “var” keyword in ES6?](https://softwareengineering.stackexchange.com/questions/274342/is-there-any-reason-to-use-the-var-keyword-in-es6/274352#274352)  
+[每天学点ES6－let和const对比](https://cookfront.github.io/2015/05/28/es6-let-const/)  
 
   
