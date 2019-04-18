@@ -113,7 +113,7 @@ alert(i);   // 控制台报错：Uncaught ReferenceError: i is not defined
 [每天学点ES6－let和const对比](https://cookfront.github.io/2015/05/28/es6-let-const/)  
 
 ### 分享
-第149行代码
+第149行代码  
 棒极了  
 实时展示了当前所花时间，👍  
 
