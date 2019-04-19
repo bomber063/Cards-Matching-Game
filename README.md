@@ -119,3 +119,10 @@ alert(i);   // 控制台报错：Uncaught ReferenceError: i is not defined
 
 分享一个可以更方便操纵或格式化日期、时间的 JS 库，有兴趣可以去瞧瞧：  
 [Moment.js | Home](https://momentjs.com/)
+
+### 技巧  
+第240行代码  
+使用三元运算简化了代码，Great job！  
+这里分享一篇论坛转载的文章，还可以在今后的开发中用到其他小技巧：  
+[【转载】19个常用 js 简写方法【翻译】](https://discussions.youdaxue.com/t/19-js/43877)  
+[原文](https://www.sitepoint.com/shorthand-javascript-techniques/)  
