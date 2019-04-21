@@ -130,3 +130,25 @@ alert(i);   // 控制台报错：Uncaught ReferenceError: i is not defined
 ### 建议
 第281行代码  
 一点额外建议，如果想要让星级评分看起来细节更多，可以试试加上半颗星星的字符 fa-star-half-o。:) 
+
+## 第45次commit后的CSS代码建议
+第54行代码：  
+太棒了  
+现在当缩小浏览器宽度到一定程度的时候，游戏界面会显示不完全。这样的游戏体验可不太好 😭
+
+我们可以通过使用 @media 设置断点，根据屏幕尺寸修改 card 和 deck 的高度，详细的做法参考这里：[媒体查询](http://zh.learnlayout.com/media-queries.html)  
+代码例子🌰  
+```
+@media only screen and (max-width: 600px) {  
+    .deck .card {  
+       /*设置高度，宽度*/  
+    }  
+  
+    .deck {  
+       /*设置高度，宽度*/  
+    }  
+    /*还有其它的，如状态栏也要修改一下，务必显示全*/  
+}  
+```
+最终效果 gif  
+![预览图](https://udacity-reviews-uploads.s3.amazonaws.com/_attachments/31443/1509516563/11_-01-2017_14-06-40.gif)  
