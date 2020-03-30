@@ -18,19 +18,15 @@ var openedCard = [];
 var matchedCard = [];
 // 设置一个关闭卡片函数
 function myFunction() {
-  setTimeout(myFunctions2, 200);
-  //关闭
-  function myFunctions2() {
-    openedCard.forEach(function(card){
-      card.attr("class","card open show shake");
-      setTimeout(function(){
-        card.attr("class","card");
-      },1000);
-              openedCard = [];
-    });
-
-
-  };
+    // setTimeout(function(){
+        openedCard.forEach(function (card) {
+            card.attr("class", "card open show shake");
+                setTimeout(function () {
+                    card.attr("class", "card");
+                }, 800);
+                openedCard = [];
+        });
+    // },0)
 };
 
 var matching = function () {
@@ -45,7 +41,11 @@ var matching = function () {
   a=a+1;
 console.log(a);
     } else if ((openedCard.length == 2) && (openedCard[0].children().attr('class') !== openedCard[1].children().attr('class')) ) {
-
+        // openedCard[0].one('transitionend',function(){
+        //     console.log(2)
+        //     // openedCard[0].unbind('ontransitionend')
+        //     // deckClick()
+        // })
       setTimeout(myFunction, 500);
       // openedCard = []
         numberOfsteps(a);
@@ -96,32 +96,34 @@ console.log(a);
 
 
 
+deckClick()
+
+function deckClick(){
+    // $('.card').on('click', function (e) {　如果click后面没有selector就是绑定事件，点击事件一开始就会调用函数
+    $('.deck').on('click', 'li', function (e) {　//如果click后面有selector就是委托事件，点击事件一开始不会调用函数，需要通过冒泡到card才会调用函数。
+        // $('.card').on('click','li',function (e) {　//改成这样的委托事件就打不开卡牌了。
+        // console.log(e.target) -> HTML dom
+        // console.log($(this))  -> Jquery
+        // console.log( $('.card') ) -> Jquery
+
+
+        if (openedCard.length > 1) {
+            return
+        } else {
+            if ($(this).hasClass("open show match") === false) {
+                if ($(this).hasClass("open show") === false) {
+                    $(this).toggleClass("open show");
+                    var op = $(this);//.find("i");//.attr("class");// 提取所点击对象的子元素i的class类
+                    openedCard.push(op);//把提取的图片的类放到数组openedCard里面去
+                    matching();
+                }
+            };
+        }
+    });
+}
 
 
 
-
-// $('.card').on('click', function (e) {　如果click后面没有selector就是绑定事件，点击事件一开始就会调用函数
-   $('.deck').on('click','li',function (e) {　//如果click后面有selector就是委托事件，点击事件一开始不会调用函数，需要通过冒泡到card才会调用函数。
-       // $('.card').on('click','li',function (e) {　//改成这样的委托事件就打不开卡牌了。
-  // console.log(e.target) -> HTML dom
-  // console.log($(this))  -> Jquery
-  // console.log( $('.card') ) -> Jquery
-
-
- 
-
-
-
-  if ($(this).hasClass("open show match") === false) {
-    if ($(this).hasClass("open show") === false) {
-      $(this).toggleClass("open show");
-      var op = $(this);//.find("i");//.attr("class");// 提取所点击对象的子元素i的class类
-      openedCard.push(op);//把提取的图片的类放到数组openedCard里面去
-      matching();
-    }
-  };
-
-});
 
 
    $('.restart').on('click','i',function () {　
