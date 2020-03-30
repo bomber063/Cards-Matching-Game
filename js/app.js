@@ -110,6 +110,9 @@ function deckClick(){
         if (openedCard.length > 1) {
             return
         } else {
+        // if (openedCard.length > 1) {
+        //     return
+        // } else {
             if ($(this).hasClass("open show match") === false) {
                 if ($(this).hasClass("open show") === false) {
                     $(this).toggleClass("open show");
